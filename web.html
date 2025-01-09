@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bói Toán Trực Tuyến</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bói Toán Trực Tuyến</h1>
+    </header>
+    <main>
+        <h2>Chào mừng bạn đến với trang bói toán</h2>
+        <p>Vui lòng nhập thông tin của bạn để nhận được lời bói toán.</p>
+        <form id="fortuneForm">
+            <label for="name">Họ và tên:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="birthdate">Ngày sinh:</label>
+            <input type="date" id="birthdate" name="birthdate" required>
+
+            <label for="question">Câu hỏi của bạn:</label>
+            <textarea id="question" name="question" rows="4" required></textarea>
+
+            <button type="submit">Xem bói</button>
+        </form>
+        <div id="result" style="margin-top: 20px;"></div>
+    </main>
+    <script>
+        document.getElementById('fortuneForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const birthdate = document.getElementById('birthdate').value;
+            const question = document.getElementById('question').value;
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `<p>Chào ${name}, bạn sinh ngày ${birthdate}. Câu hỏi của bạn là: "${question}".</p>`;
+            resultDiv.innerHTML += '<p>Kết quả bói toán của bạn sẽ được gửi đến sớm!</p>';
+        });
+    </script>
+</body>
+</html>
